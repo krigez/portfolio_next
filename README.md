@@ -1,1 +1,1 @@
-# portfolio_nuxt
+# portfolio_next
