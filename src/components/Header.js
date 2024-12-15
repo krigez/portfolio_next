@@ -4,16 +4,23 @@ import profilePic from "@/components/header_name.png";
 
 export default function Header() {
   return (
-    <div>
-      <div className="header">
-        <Image
-          className="header"
-          src={profilePic}
-          alt="Krishna Chaitanya Arige"
-          width={300}
-          height={80}
-          priority
-        />
+    <div className="">
+      <div className="hideonscroll grid grid-cols-3 gap-3">
+        <div> &nbsp;</div>
+        <div className="header">
+          <Image
+            className="header"
+            src={profilePic}
+            alt="Krishna Chaitanya Arige"
+            width={300}
+            height={80}
+            priority
+          />
+        </div>
+        <div className="place-content-center text-sm">
+          <div className="float-right m-2">Linkedin</div>
+          <div className="float-right m-2">Contact</div>
+        </div>
       </div>
 
       <nav>
@@ -102,34 +109,25 @@ export default function Header() {
           <div className="space-y-1 px-2 pb-3 pt-2">
             <a
               href="#"
-              className="block rounded-md underline hover:underline-offset-4 px-3 py-2 text-base  text-white"
+              className="block rounded-md px-3 py-2 text-base  text-white"
               aria-current="page"
             >
               Dashboard
             </a>
-            <a
-              href="#"
-              className="block rounded-md px-3 py-2 text-base hover:bg-gray-700 hover:text-white"
-            >
+            <a href="#" className="block rounded-md px-3 py-2 text-base">
               Team
             </a>
-            <a
-              href="#"
-              className="block rounded-md px-3 py-2 text-base hover:bg-gray-700 hover:text-white"
-            >
+            <a href="#" className="block rounded-md px-3 py-2 text-base">
               Projects
             </a>
-            <a
-              href="#"
-              className="block rounded-md px-3 py-2 text-base hover:bg-gray-700 hover:text-white"
-            >
+            <a href="#" className="block rounded-md px-3 py-2 text-base">
               Calendar
             </a>
           </div>
         </div>
       </nav>
 
-      <div className="menu_divider"></div>
+      <div className="menu_divider">&nbsp;</div>
     </div>
   );
 }
