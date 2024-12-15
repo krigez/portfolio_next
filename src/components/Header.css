@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+.menu_divider {
+  margin-top: 16px;
+  float: left;
+  width: 100%;
+  height: 1px;
+  overflow: hidden;
+  background: #fff;
+  float: left;
+  transform: scaleY(0.5);
+}
+
+.getunderline {
+  position: relative;
+}
+
+.getunderline::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ededed;
+  transition: width 0.5s ease;
+}
+
+.getunderline:hover::after {
+  width: 100%; /* Transition to full width on hover */
+}
