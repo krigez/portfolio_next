@@ -26,6 +26,11 @@
   z-index: 1000;
 }
 
+.hideonscroll {
+  height: 60px;
+  background: transparent;
+}
+
 .logos {
   font-size: 1.5rem;
   font-weight: bold;
@@ -87,5 +92,9 @@
 @media (max-width: 768px) {
   .nav {
     display: none;
+  }
+
+  .hideonscroll {
+    display: inline-flex;
   }
 }
