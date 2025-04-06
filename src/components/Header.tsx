@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, RefObject } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -15,24 +15,18 @@ const navItems = [
   { label: "Contact", href: "#contact" },
 ];
 
-interface HeaderProps {
-  scrollContainerRef: RefObject<HTMLDivElement | null>;
-}
-const Header: React.FC<HeaderProps> = ({ scrollContainerRef }) => {
+const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const el = scrollContainerRef?.current || window;
-
     const onScroll = () => {
-      const scrollTop =
-        scrollContainerRef?.current?.scrollTop ?? window.scrollY;
+      const scrollTop = window.scrollY;
       setScrolled(scrollTop > 30);
     };
 
-    el.addEventListener("scroll", onScroll);
-    return () => el.removeEventListener("scroll", onScroll);
-  }, [scrollContainerRef]);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <motion.header
@@ -46,7 +40,12 @@ const Header: React.FC<HeaderProps> = ({ scrollContainerRef }) => {
       {/* Logo / Name */}
       {scrolled ? (
         <>
-          <div className="text-lg font-bold">Krishna Chaitanya Arige</div>
+          <div className="text-lg font-bold">
+            <Link href="/" scroll={true}>
+              {" "}
+              Krishna Chaitanya Arige
+            </Link>
+          </div>
         </>
       ) : (
         <>

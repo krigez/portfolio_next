@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import AboutMe from "@/components/AboutMe";
@@ -9,33 +9,101 @@ import EducationSection from "@/components/EducationSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
+// import VerticalNav from "@/components/VerticalNav"; // new nav
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 60, scale: 0.95 },
+  visible: { opacity: 1, y: 0, scale: 1 },
+};
+
+const leftFadeVariant = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0 },
+};
+
+const rightFadeVariant = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0 },
+};
 
 export default function Home() {
-  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
-
   return (
     <>
-      <Header scrollContainerRef={scrollContainerRef} />
+      <Header />
       <ScrollProgressBar />
-      <main ref={scrollContainerRef}>
-        <section id="about">
+      {/* <VerticalNav /> */}
+      <main>
+        <motion.section
+          id="about"
+          className="main"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          variants={leftFadeVariant}
+        >
           <AboutMe />
-        </section>
-        <section id="skills">
+        </motion.section>
+
+        <motion.section
+          id="skills"
+          className="main"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          variants={sectionVariants}
+        >
           <SkillsSection />
-        </section>
-        <section id="experience">
+        </motion.section>
+
+        <motion.section
+          id="experience"
+          className="main"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          variants={rightFadeVariant}
+        >
           <ExperienceSection />
-        </section>
-        <section id="projects">
+        </motion.section>
+
+        <motion.section
+          id="projects"
+          className="main"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          variants={sectionVariants}
+        >
           <ProjectsSection />
-        </section>
-        <section id="education">
+        </motion.section>
+
+        <motion.section
+          id="education"
+          className="main"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          variants={leftFadeVariant}
+        >
           <EducationSection />
-        </section>
-        <section id="contact">
+        </motion.section>
+
+        <motion.section
+          id="contact"
+          className="main"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          variants={rightFadeVariant}
+        >
           <ContactSection />
-        </section>
+        </motion.section>
       </main>
     </>
   );
