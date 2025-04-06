@@ -23,7 +23,7 @@ export default function SkillsSection() {
       id="skills"
       className="text-black py-16 px-4 bg-gray-100 bg-blue-100"
     >
-      <h2 className="text-3xl font-bold text-center mb-8">Skills</h2>
+      <h2 className="text-3xl font-bold text-center mb-8">About</h2>
       <div className="text-center ">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {skills.map((skill, index) => (
@@ -39,6 +39,7 @@ export default function SkillsSection() {
             </motion.div>
           ))}
         </div>
+        <h2>Click here to scroll down </h2>
       </div>
     </section>
   );

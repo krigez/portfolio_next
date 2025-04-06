@@ -20,7 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body
+        className={`${montserrat.className} scroll-smooth bg-black text-white`}
+      >
+        {" "}
+        {children}
+      </body>
     </html>
   );
 }
