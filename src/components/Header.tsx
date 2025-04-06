@@ -1,24 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, RefObject } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import profilePic from "@/components/header_name.png";
 import { motion } from "framer-motion";
+import profilePic from "@/components/header_name.png";
+import FallingText from "@/components/FallingText";
 
 const navItems = [
-  { label: "About Me", href: "#about" },
+  { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Education", href: "#education" },
   { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Header({
-  scrollContainerRef,
-}: {
-  scrollContainerRef: React.RefObject<HTMLDivElement>;
-}) {
+interface HeaderProps {
+  scrollContainerRef: RefObject<HTMLDivElement | null>;
+}
+const Header: React.FC<HeaderProps> = ({ scrollContainerRef }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function Header({
       {/* Logo / Name */}
       {scrolled ? (
         <>
-          <div className="text-lg font-bold">Chaitanya Arige</div>
+          <div className="text-lg font-bold">Krishna Chaitanya Arige</div>
         </>
       ) : (
         <>
@@ -58,10 +58,20 @@ export default function Header({
               height={80}
               priority
             />
-            <div className="text-center text-sm mt-1 text-white-700 dark:text-gray-300 font-medium">
-              JavaScript | React | Vue | Node.js
-            </div>
-          </div>{" "}
+
+            <FallingText
+              techStack={[
+                "JavaScript",
+                "|",
+                "React",
+                "|",
+                "Vue",
+                "|",
+                "Node.js",
+              ]}
+              className="text-sm mt-1 italic text-white-700 dark:text-gray-300 font-medium"
+            />
+          </div>
         </>
       )}
 
@@ -101,4 +111,6 @@ export default function Header({
       </div>
     </motion.header>
   );
-}
+};
+
+export default Header;

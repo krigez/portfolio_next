@@ -8,8 +8,8 @@ import FadeInSection from "./FadeInSection";
 
 const sections = [
   { id: "skills", component: <SkillsSection /> },
-  { id: "experience", component: <ExperienceSection index={0} /> },
-  { id: "projects", component: <ProjectsSection index={0} /> },
+  { id: "experience", component: <ExperienceSection /> },
+  { id: "projects", component: <ProjectsSection /> },
 ];
 
 export default function Home({
@@ -43,7 +43,9 @@ export default function Home({
         <FadeInSection key={id}>
           <section
             id={id}
-            ref={(el) => (sectionRefs.current[id] = el)}
+            ref={(el: HTMLElement | null) => {
+              sectionRefs.current[id] = el;
+            }}
             className="h-screen snap-start flex items-center justify-center"
           >
             {component}

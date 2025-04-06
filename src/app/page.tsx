@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef } from "react";
 import Header from "@/components/Header";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import AboutMe from "@/components/AboutMe";
@@ -8,11 +11,13 @@ import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+
   return (
     <>
-      <Header />
+      <Header scrollContainerRef={scrollContainerRef} />
       <ScrollProgressBar />
-      <main>
+      <main ref={scrollContainerRef}>
         <section id="about">
           <AboutMe />
         </section>
