@@ -33,9 +33,13 @@ const Header = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`sticky top-0 z-50 w-full px-6 py-4 flex items-center justify-between transition-colors duration-300 ${
-        scrolled ? "bg-white text-black shadow-md" : "bg-black/30 text-white"
-      } backdrop-blur-md`}
+      className="sticky top-0 z-50 w-full px-6 py-4 flex items-center justify-between backdrop-blur-md"
+      style={{
+        backgroundColor: scrolled ? "rgba(255,255,255,1)" : "rgba(0,0,0,0.3)",
+        color: scrolled ? "#000000" : "#ffffff",
+        boxShadow: scrolled ? "0 2px 8px rgba(0, 0, 0, 0.1)" : "none",
+        transition: "all 0.3s ease",
+      }}
     >
       {/* Logo / Name */}
       {scrolled ? (

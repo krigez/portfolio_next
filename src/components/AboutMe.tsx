@@ -1,46 +1,20 @@
-// components/Skills.tsx
 "use client";
 
 import { motion } from "framer-motion";
 
-export default function SkillsSection() {
-  const skills = [
-    "React.js",
-    "Redux",
-    "Node.js",
-    "TypeScript",
-    "JavaScript",
-    "Jest",
-    "Cypress",
-    "TailwindCSS",
-    "Git",
-    "REST APIs",
-    "GraphQL",
-  ];
-
+const AboutSection = () => {
   return (
-    <section
-      id="skills"
-      className="text-black py-16 px-4 bg-gray-100 bg-blue-100"
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="max-w-4xl mx-auto py-16 px-4"
     >
-      <h2 className="text-3xl font-bold text-center mb-8">About</h2>
-      <div className="text-center ">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill}
-              className="dark:bg-gray-900 p-6 rounded-xl shadow-md text-center font-semibold"
-              whileHover={{ scale: 1.05 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: 30 }}
-              transition={{ duration: 0.3, delay: index * 0.05 }}
-            >
-              <div className="">{skill}</div>
-            </motion.div>
-          ))}
-        </div>
-        <h2>Click here to scroll down </h2>
-      </div>
-    </section>
+      <h2 className="text-2xl font-bold mb-4">About Me</h2>
+      <p> i am a front end dev contact me ...</p>
+    </motion.div>
   );
-}
+};
+
+export default AboutSection;

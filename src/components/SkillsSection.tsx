@@ -1,23 +1,22 @@
-// components/Skills.tsx
 "use client";
 
 import { motion } from "framer-motion";
 
-export default function SkillsSection() {
-  const skills = [
-    "React.js",
-    "Redux",
-    "Node.js",
-    "TypeScript",
-    "JavaScript",
-    "Jest",
-    "Cypress",
-    "TailwindCSS",
-    "Git",
-    "REST APIs",
-    "GraphQL",
-  ];
+const skills = [
+  "React.js",
+  "Redux",
+  "Node.js",
+  "TypeScript",
+  "JavaScript",
+  "Jest",
+  "Cypress",
+  "TailwindCSS",
+  "Git",
+  "REST APIs",
+  "GraphQL",
+];
 
+const SkillsSection = () => {
   return (
     <section
       id="skills"
@@ -42,4 +41,6 @@ export default function SkillsSection() {
       </div>
     </section>
   );
-}
+};
+
+export default SkillsSection;
