@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
-import AboutMe from "@/components/AboutMe";
+import AboutSection from "@/components/AboutMe";
 import ExperienceSection from "@/components/ExperienceSection";
 import EducationSection from "@/components/EducationSection";
 import ProjectsSection from "@/components/ProjectsSection";
@@ -32,22 +32,22 @@ export default function Home() {
       <Header />
       <ScrollProgressBar />
       {/* <VerticalNav /> */}
-      <main>
+      <main className="snap-mandatory ">
         <motion.section
           id="about"
-          className="main"
+          className="main snap-start h-screen flex items-center justify-center px-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
           variants={leftFadeVariant}
         >
-          <AboutMe />
+          <AboutSection />
         </motion.section>
 
         <motion.section
           id="skills"
-          className="main"
+          className="main snap-start h-screen  items-center justify-center px-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -59,7 +59,7 @@ export default function Home() {
 
         <motion.section
           id="experience"
-          className="main"
+          className="main snap-start h-screen items-center justify-center px-6"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
