@@ -1,6 +1,6 @@
 // src/components/TimelineItem.tsx
 import React, { useRef, useEffect, useState } from "react";
-import type { TimelineEntry } from "./Timelinedata";
+import { TimelineEntry } from "./Timelinedata";
 import "./timeline.css"; // We'll add styles next
 
 interface TimelineItemProps {
@@ -47,7 +47,9 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
       className={`item ${position} ${visible ? "visible" : ""}`}
       id={`item-${item.id}`}
     >
-      <div className="node" aria-hidden="true"></div>
+      <div className="node" data-position={position} aria-hidden="true">
+        <span className="node-core" />
+      </div>
       <div className="card" tabIndex={0}>
         <h3>{item.title}</h3>
         <div className="org">

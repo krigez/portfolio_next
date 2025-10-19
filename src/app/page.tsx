@@ -33,77 +33,90 @@ export default function Home() {
       <Header />
       <ScrollProgressBar />
       {/* <VerticalNav /> */}
-      <main className="snap-mandatory ">
+      <main className="snap-mandatory">
         <motion.section
           id="about"
-          className="main snap-start h-screen flex items-center justify-center px-6"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
           variants={leftFadeVariant}
         >
-          <AboutSection />
+          {/* Inner wrapper to constrain content width while keeping full-bleed background */}
+          <div className="w-full max-w-6xl mx-auto px-6">
+            <AboutSection />
+          </div>
         </motion.section>
 
         <motion.section
           id="skills"
-          className="main snap-start h-screen  items-center justify-center px-6"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
           variants={sectionVariants}
         >
-          <SkillsSection />
+          <div className="w-full max-w-6xl mx-auto px-6">
+            <SkillsSection />
+          </div>
         </motion.section>
 
         <motion.section
           id="experience"
-          className="main snap-start h-screen items-center justify-center px-6"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
           variants={rightFadeVariant}
         >
-          <ExperienceSection />
-        </motion.section>
-
-        <motion.section
-          id="projects"
-          className="main"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          variants={sectionVariants}
-        >
-          <ProjectsSection />
+          <div className="w-full max-w-6xl mx-auto px-6">
+            <ExperienceSection />
+          </div>
         </motion.section>
 
         <motion.section
           id="education"
-          className="main"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
           variants={leftFadeVariant}
         >
-          <EducationSection />
+          <div className="w-full max-w-6xl mx-auto px-6">
+            <EducationSection />
+          </div>
+        </motion.section>
+
+        <motion.section
+          id="projects"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          variants={sectionVariants}
+        >
+          <div className="w-full max-w-6xl mx-auto px-6">
+            <ProjectsSection />
+          </div>
         </motion.section>
 
         <motion.section
           id="contact"
-          className="main"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
           variants={rightFadeVariant}
         >
-          <ContactSection />
+          <div className="w-full max-w-6xl mx-auto px-6">
+            <ContactSection />
+          </div>
         </motion.section>
       </main>
       <Footer />
