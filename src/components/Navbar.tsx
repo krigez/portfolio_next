@@ -7,7 +7,7 @@ const sections = [
   { id: "projects", label: "Projects" },
 ];
 
-export default function Navbar({ activeSection }: { activeSection: string }) {
+export default function Navbar({ activeSection }: { activeSection?: string }) {
   return (
     <nav className="fixed top-1/2 -translate-y-1/2 left-6 flex flex-col space-y-6 z-50">
       {sections.map((section) => (
@@ -20,6 +20,7 @@ export default function Navbar({ activeSection }: { activeSection: string }) {
               ? "text-blue-600 scale-110 font-bold"
               : "text-gray-500 hover:text-blue-400"
           }`}
+          aria-current={activeSection === section.id ? "true" : undefined}
         >
           {section.label}
         </Link>
