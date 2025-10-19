@@ -53,3 +53,101 @@
 .getunderline:hover::after {
   width: 100%;
 }
+
+.menu-toggle {
+  background: transparent;
+  border: none;
+  color: inherit;
+  display: none; /* show only on small screens */
+}
+
+.menu-toggle:focus {
+  outline: 2px solid rgba(59, 130, 246, 0.6);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Responsive: tablets */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 960px;
+    padding: 0 16px;
+  }
+
+  .nav {
+    gap: 12px;
+  }
+
+  .header {
+    height: 56px;
+  }
+}
+
+/* Responsive: mobile */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  /* show menu toggle, hide regular nav */
+  .menu-toggle {
+    display: block;
+    font-size: 1.1rem;
+    padding: 6px;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .nav {
+    display: none; /* toggled open with .open class */
+    position: absolute;
+    top: 100%;
+    right: 12px;
+    width: 220px;
+    max-width: calc(100% - 24px);
+    flex-direction: column;
+    gap: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1200;
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a,
+  .nav .getunderline {
+    padding: 12px 16px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .getunderline {
+    background-color: transparent;
+  }
+
+  .getunderline::after {
+    background-color: currentColor;
+  }
+
+  .header.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+  }
+}
+
+/* Very small screens tweaks */
+@media (max-width: 420px) {
+  .nav {
+    width: 180px;
+    right: 8px;
+  }
+
+  .nav a,
+  .nav .getunderline {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+}
