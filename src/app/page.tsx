@@ -36,7 +36,7 @@ export default function Home() {
       <main className="snap-mandatory">
         <motion.section
           id="about"
-          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center p-6 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -51,7 +51,7 @@ export default function Home() {
 
         <motion.section
           id="skills"
-          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center p-6 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -65,7 +65,7 @@ export default function Home() {
 
         <motion.section
           id="experience"
-          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center p-6 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -79,7 +79,7 @@ export default function Home() {
 
         <motion.section
           id="education"
-          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center  p-6 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -93,7 +93,7 @@ export default function Home() {
 
         <motion.section
           id="projects"
-          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center p-6 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -107,7 +107,7 @@ export default function Home() {
 
         <motion.section
           id="contact"
-          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center px-0 relative"
+          className="snap-start min-h-screen w-full max-w-none flex items-center justify-center p-6 relative"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}

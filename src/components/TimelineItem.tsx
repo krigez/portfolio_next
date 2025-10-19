@@ -60,8 +60,8 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
           {item.start} — {item.end}
         </time>
 
-        <p className="summary">{item.summary}</p>
-        <ul className="bullets">
+        <p className="summary text-left">{item.summary}</p>
+        <ul className="bullets text-left">
           {item.bullets.map((b, i) => (
             <li key={i}>{b}</li>
           ))}

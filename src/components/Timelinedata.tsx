@@ -16,10 +16,10 @@ export interface TimelineEntry {
 export const timelineData: TimelineEntry[] = [
   {
     id: "1",
-    title: "Senior Frontend Engineer",
-    organization: "Example Co.",
-    location: "Remote",
-    start: "2022-08",
+    title: "Senior Associate",
+    organization: "Cognizant Technology Solutions.",
+    location: "Hyderabad",
+    start: "Dec-2020",
     end: "Present",
     summary:
       "Lead frontend development for the customer web app, focusing on performance & accessibility.",
