@@ -9,6 +9,7 @@ import EducationSection from "@/components/EducationSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import SkillsSection from "@/components/SkillsSection";
 import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 // import VerticalNav from "@/components/VerticalNav"; // new nav
 
 const sectionVariants = {
@@ -105,6 +106,7 @@ export default function Home() {
           <ContactSection />
         </motion.section>
       </main>
+      <Footer />
     </>
   );
 }

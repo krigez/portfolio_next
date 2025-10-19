@@ -12,7 +12,7 @@ const AboutSection = () => {
       className="max-w-4xl mx-auto py-16 px-4"
     >
       <h2 className="text-2xl font-bold mb-4">About Me</h2>
-      <p> i am a front end dev contact me ...</p>
+      <p>I build scalable web experiences with React & Node</p>
     </motion.div>
   );
 };

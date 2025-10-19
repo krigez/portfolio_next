@@ -11,8 +11,9 @@ const ExperienceSection = () => {
       viewport={{ once: true }}
       className="max-w-4xl mx-auto py-16 px-4"
     >
-      <h2 className="text-2xl font-bold mb-4">My COntact</h2>
-      <p> i am a front end dev contact me ...</p>
+      <h2 className="text-2xl font-bold mb-4">My Contact Info</h2>
+      <p> I build scalable web experiences with React & Node</p>
+      <p> Email: chaitanya.arige@gmail.com</p>
     </motion.div>
   );
 };
