@@ -15,7 +15,7 @@ const AboutSection = () => {
       <div className="text-gray-300 leading-relaxed whitespace-pre-line">
         I&apos;m a full-stack software engineer passionate about building
         scalable systems and polished user interfaces. I work primarily with
-        <b>React, Next.js, Node.js, and TypeScript </b> — designing clean
+        <b> React, Next.js, Node.js, and TypeScript </b> — designing clean
         architectures, implementing secure auth flows (JWT, RBAC), and crafting
         maintainable UI libraries with Storybook. I enjoy turning complex
         problems into elegant, reliable products with a focus on thoughtful

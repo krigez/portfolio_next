@@ -12,8 +12,8 @@ interface FooterProps {
 export default function Footer({
   email = "chaitanya.arige@gmail.com",
   phone,
-  linkedin = "https://www.linkedin.com/in/your-profile",
-  github = "https://github.com/your-username",
+  linkedin = "https://www.linkedin.com/in/chaitanyaarige",
+  github = "https://github.com/krigez",
   author = "Chaitanya Arige",
 }: FooterProps) {
   return (

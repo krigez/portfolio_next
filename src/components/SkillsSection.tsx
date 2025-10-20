@@ -6,13 +6,23 @@ const fskills = [
   "JavaScript",
   "HTML5/CSS3",
   "React",
+  "Vue.js",
+  "Next.js",
   "Redux",
   "TypeScript",
   "Jest",
-  "CSS Frameworks",
 ];
 
-const bskills = ["TypeScript", "Git", "REST APIs", "GraphQL"];
+const bskills = [
+  "Git",
+  "Node.js",
+  "Python",
+  "Express.js",
+  "PostgreSQL",
+  "REST APIs",
+  "MongoDB",
+  "GraphQL",
+];
 
 const SkillsSection = () => {
   return (
@@ -21,7 +31,7 @@ const SkillsSection = () => {
       className="text-black py-16 px-4 bg-gray-100 bg-blue-100"
     >
       <h2 className="text-3xl font-bold text-center mb-8">Tech Skills</h2>
-      <h3 className="text-xl text-left font-bold m-8">Frontend Skills:</h3>
+      {/* <h3 className="text-xl text-left font-bold m-8">Frontend Skills:</h3> */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {fskills.map((skill, index) => (
           <motion.div
@@ -37,7 +47,8 @@ const SkillsSection = () => {
         ))}
       </div>
 
-      <h3 className="text-xl text-left font-bold m-8">Backend Skills:</h3>
+      {/* <h3 className="text-xl text-left font-bold m-8">Backend Skills:</h3> */}
+      <br />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {bskills.map((skill, index) => (
           <motion.div
