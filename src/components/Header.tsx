@@ -42,10 +42,11 @@ const Header = () => {
 
   return (
     <motion.header
+      role="banner"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="sticky top-0 z-50 w-full px-6 py-4 flex items-center justify-between backdrop-blur-md"
+      className="sticky top-0 left-0 right-0 z-50 w-full px-6 py-4 flex items-center justify-between backdrop-blur-md"
       style={{
         backgroundColor: scrolled ? "rgba(255,255,255,1)" : "rgba(0,0,0,0.3)",
         color: scrolled ? "#000000" : "#ffffff",
@@ -175,9 +176,33 @@ const Header = () => {
           onClick={() => setMenuOpen(false)} // click on backdrop closes
         >
           <div
-            className="absolute right-4 top-4 w-64 bg-white dark:bg-gray-900 text-black dark:text-white rounded-lg shadow-lg p-4"
+            className="absolute right-4 top-4 w-64 bg-white/80 dark:bg-gray-900 backdrop-blur-sm text-black dark:text-white rounded-lg shadow-lg p-4"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* top control: add hamburger button at top (click closes menu) */}
+            <div className="flex justify-end mb-2">
+              <button
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-6 h-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+
             <nav className="flex flex-col gap-3">
               {navItems.map(({ label, href }) => (
                 <Link
@@ -212,10 +237,7 @@ const Header = () => {
             </nav>
           </div>
           {/* backdrop */}
-          <div
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm"
-            aria-hidden="true"
-          />
+          <div className="fixed inset-0" aria-hidden="true" />
         </div>
       )}
     </motion.header>

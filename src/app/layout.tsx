@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   description: "This is my Portfolio",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 const montserrat = Montserrat({
   weight: "500",
   subsets: ["latin"],
