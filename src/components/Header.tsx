@@ -46,7 +46,7 @@ const Header = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="sticky top-0 left-0 right-0 z-50 w-full px-6 py-4 flex items-center justify-between backdrop-blur-md"
+      className="sticky top-0 left-0 right-0 z-50 px-6 py-4 backdrop-blur-md"
       style={{
         backgroundColor: scrolled ? "rgba(255,255,255,1)" : "rgba(0,0,0,0.3)",
         color: scrolled ? "#000000" : "#ffffff",
@@ -54,192 +54,194 @@ const Header = () => {
         transition: "all 0.3s ease",
       }}
     >
-      {/* Logo / Name */}
-      {scrolled ? (
-        <>
-          <div className="text-lg font-bold">
-            <Link href="/" scroll={true}>
-              {" "}
-              Krishna Chaitanya Arige
-            </Link>
-          </div>
-        </>
-      ) : (
-        <>
-          <div className="flex flex-col justify-center items-center">
-            <Image
-              src={profilePic}
-              alt="Chaitanya Arige"
-              width={280}
-              height={80}
-              priority
-            />
-
-            <FallingText
-              techStack={[
-                "JavaScript",
-                "|",
-                "React",
-                "|",
-                "Vue",
-                "|",
-                "Node.js",
-              ]}
-              className="text-sm mt-1 italic text-white-700 dark:text-gray-300 font-medium"
-            />
-          </div>
-        </>
-      )}
-
-      {/* Mobile toggle (visible on small screens) */}
-      <button
-        className="md:hidden menu-toggle p-2 rounded-md"
-        aria-label={menuOpen ? "Close menu" : "Open menu"}
-        aria-expanded={menuOpen}
-        onClick={() => setMenuOpen((s) => !s)}
-      >
-        {/* simple hamburger / X */}
-        {menuOpen ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        )}
-      </button>
-
-      {/* Desktop nav (hidden on small screens) */}
-      <nav className="hidden md:flex items-center gap-6 text-sm">
-        {navItems.map(({ label, href }) => (
-          <Link
-            key={label}
-            href={href}
-            className="hover:underline transition-colors"
-          >
-            {label}
-          </Link>
-        ))}
-
-        {/* LinkedIn Icon */}
-        <a
-          href="https://www.linkedin.com/in/yourprofile"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Visit LinkedIn profile"
-          className="hover:scale-105 transition-transform"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="currentColor"
-            className={`${
-              scrolled ? "text-blue-600" : "text-white"
-            } hover:text-blue-800 transition-colors duration-200`}
-            viewBox="0 0 16 16"
-          >
-            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-          </svg>
-        </a>
-      </nav>
-
-      {/* Mobile menu panel */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 z-40 md:hidden"
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setMenuOpen(false)} // click on backdrop closes
-        >
-          <div
-            className="absolute right-4 top-4 w-64 bg-white/80 dark:bg-gray-900 backdrop-blur-sm text-black dark:text-white rounded-lg shadow-lg p-4"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* top control: add hamburger button at top (click closes menu) */}
-            <div className="flex justify-end mb-2">
-              <button
-                onClick={() => setMenuOpen(false)}
-                aria-label="Close menu"
-                className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo / Name */}
+        {scrolled ? (
+          <>
+            <div className="text-lg font-bold">
+              <Link href="/" scroll={true}>
+                {" "}
+                Krishna Chaitanya Arige
+              </Link>
             </div>
+          </>
+        ) : (
+          <>
+            <div className="flex flex-col justify-center items-center">
+              <Image
+                src={profilePic}
+                alt="Chaitanya Arige"
+                width={280}
+                height={80}
+                priority
+              />
 
-            <nav className="flex flex-col gap-3">
-              {navItems.map(({ label, href }) => (
-                <Link
-                  key={label}
-                  href={href}
+              <FallingText
+                techStack={[
+                  "JavaScript",
+                  "|",
+                  "React",
+                  "|",
+                  "Vue",
+                  "|",
+                  "Node.js",
+                ]}
+                className="text-sm mt-1 italic text-white-700 dark:text-gray-300 font-medium"
+              />
+            </div>
+          </>
+        )}
+
+        {/* Mobile toggle (visible on small screens) */}
+        <button
+          className="md:hidden menu-toggle p-2 rounded-md"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((s) => !s)}
+        >
+          {/* simple hamburger / X */}
+          {menuOpen ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          )}
+        </button>
+
+        {/* Desktop nav (hidden on small screens) */}
+        <nav className="hidden md:flex items-center gap-6 text-sm">
+          {navItems.map(({ label, href }) => (
+            <Link
+              key={label}
+              href={href}
+              className="hover:underline transition-colors"
+            >
+              {label}
+            </Link>
+          ))}
+
+          {/* LinkedIn Icon */}
+          <a
+            href="https://www.linkedin.com/in/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Visit LinkedIn profile"
+            className="hover:scale-105 transition-transform"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              className={`${
+                scrolled ? "text-blue-600" : "text-white"
+              } hover:text-blue-800 transition-colors duration-200`}
+              viewBox="0 0 16 16"
+            >
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+            </svg>
+          </a>
+        </nav>
+
+        {/* Mobile menu panel */}
+        {menuOpen && (
+          <div
+            className="fixed inset-0 z-40 md:hidden"
+            role="dialog"
+            aria-modal="true"
+            onClick={() => setMenuOpen(false)} // click on backdrop closes
+          >
+            <div
+              className="absolute right-4 top-4 w-64 bg-white/80 dark:bg-gray-900 backdrop-blur-sm text-black dark:text-white rounded-lg shadow-lg p-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* top control: add hamburger button at top (click closes menu) */}
+              <div className="flex justify-end mb-2">
+                <button
                   onClick={() => setMenuOpen(false)}
-                  className="block px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+                  aria-label="Close menu"
+                  className="p-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
-                  {label}
-                </Link>
-              ))}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
 
-              <a
-                href="https://www.linkedin.com/in/yourprofile"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800"
-              >
-                {/* small icon + label */}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="currentColor"
-                  className="text-blue-600"
-                  viewBox="0 0 16 16"
+              <nav className="flex flex-col gap-3">
+                {navItems.map(({ label, href }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+                  >
+                    {label}
+                  </Link>
+                ))}
+
+                <a
+                  href="https://www.linkedin.com/in/yourprofile"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800"
                 >
-                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
-                </svg>
-                LinkedIn
-              </a>
-            </nav>
+                  {/* small icon + label */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    className="text-blue-600"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                  </svg>
+                  LinkedIn
+                </a>
+              </nav>
+            </div>
+            {/* backdrop */}
+            <div className="fixed inset-0" aria-hidden="true" />
           </div>
-          {/* backdrop */}
-          <div className="fixed inset-0" aria-hidden="true" />
-        </div>
-      )}
+        )}
+      </div>
     </motion.header>
   );
 };
