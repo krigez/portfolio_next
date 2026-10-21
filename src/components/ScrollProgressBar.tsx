@@ -1,28 +1,16 @@
-// components/ScrollProgress.tsx
 "use client";
-import { useEffect, useState } from "react";
+
+import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function ScrollProgressBar() {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.body.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-1 z-[9999] bg-something">
-      <div
-        className="h-full bg-blue-500 transition-all duration-150"
-        style={{ width: `${scrollProgress}%` }}
-      ></div>
-    </div>
+    <motion.div
+      aria-hidden="true"
+      style={{ scaleX }}
+      className="fixed left-0 right-0 top-0 z-[60] h-[3px] origin-left bg-gradient-to-r from-blue-400 via-violet-400 to-teal-300"
+    />
   );
 }

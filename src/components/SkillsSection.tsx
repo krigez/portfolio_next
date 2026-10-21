@@ -1,70 +1,84 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { fadeUp, smoothEase } from "./Section";
 
-const fskills = [
-  "JavaScript",
-  "HTML5/CSS3",
-  "React",
-  "Vue.js",
-  "Next.js",
-  "Redux",
-  "TypeScript",
-  "Jest",
+const skillGroups = [
+  { title: "Languages", items: ["JavaScript (ES6+)", "TypeScript", "Python"] },
+  {
+    title: "Front-End",
+    items: ["React", "Next.js", "Redux", "Vue.js", "Nuxt.js", "Pinia", "HTML5", "CSS3"],
+  },
+  {
+    title: "Backend",
+    items: ["Node.js", "Express.js", "REST APIs", "GraphQL", "WebSockets"],
+  },
+  {
+    title: "Databases",
+    items: ["PostgreSQL", "MongoDB", "MySQL", "DynamoDB", "Redis"],
+  },
+  {
+    title: "Cloud & Tools",
+    items: ["AWS", "Docker", "Git", "Linux", "Pega Platform (CSSA)"],
+  },
+  {
+    title: "AI & Data",
+    items: [
+      "GitHub Copilot (agent mode)",
+      "Prompt engineering",
+      "MCP tools",
+      "RAG",
+      "Amazon Bedrock",
+      "pandas",
+      "PyTorch",
+    ],
+  },
+  {
+    title: "Quality & Security",
+    items: [
+      "Unit testing",
+      "XSS prevention",
+      "Authentication",
+      "ADA / WCAG accessibility",
+      "Root-cause analysis",
+      "Performance tuning",
+    ],
+  },
+  {
+    title: "Leadership",
+    items: [
+      "Mentoring",
+      "Code reviews",
+      "Agile Scrum",
+      "Sprint planning",
+      "Estimation",
+      "Production support",
+    ],
+  },
 ];
 
-const bskills = [
-  "Git",
-  "Node.js",
-  "Python",
-  "Express.js",
-  "PostgreSQL",
-  "REST APIs",
-  "MongoDB",
-  "GraphQL",
-];
-
-const SkillsSection = () => {
-  return (
-    <section
-      id="skills"
-      className="text-black py-16 px-4 bg-gray-100 bg-blue-100"
-    >
-      <h2 className="text-3xl font-bold text-center mb-8">Tech Skills</h2>
-      {/* <h3 className="text-xl text-left font-bold m-8">Frontend Skills:</h3> */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-        {fskills.map((skill, index) => (
-          <motion.div
-            key={skill}
-            className="dark:bg-gray-900 p-6 rounded-xl shadow-md text-center font-semibold"
-            whileHover={{ scale: 1.05 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-          >
-            <div className="">{skill}</div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* <h3 className="text-xl text-left font-bold m-8">Backend Skills:</h3> */}
-      <br />
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-        {bskills.map((skill, index) => (
-          <motion.div
-            key={skill}
-            className="dark:bg-gray-900 p-6 rounded-xl shadow-md text-center font-semibold"
-            whileHover={{ scale: 1.05 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.3, delay: index * 0.05 }}
-          >
-            <div className="">{skill}</div>
-          </motion.div>
-        ))}
-      </div>
-    </section>
-  );
-};
+const SkillsSection = () => (
+  <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+    {skillGroups.map((group, index) => (
+      <motion.div
+        key={group.title}
+        {...fadeUp}
+        transition={{ duration: 0.6, delay: (index % 4) * 0.08, ease: smoothEase }}
+        className="glass glass-hover p-5"
+      >
+        <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-700 dark:text-blue-300">
+          {group.title}
+        </h3>
+        <ul className="flex flex-wrap gap-2">
+          {group.items.map((skill) => (
+            <li key={skill} className="chip">
+              {skill}
+            </li>
+          ))}
+        </ul>
+      </motion.div>
+    ))}
+  </div>
+);
 
 export default SkillsSection;

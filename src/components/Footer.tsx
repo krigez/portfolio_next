@@ -10,16 +10,16 @@ interface FooterProps {
 }
 
 export default function Footer({
-  email = "chaitanya.arige@gmail.com",
+  email = "chaitanyaarige@gmail.com",
   phone,
   linkedin = "https://www.linkedin.com/in/chaitanyaarige",
   github = "https://github.com/krigez",
-  author = "Chaitanya Arige",
+  author = "Krishna Chaitanya Arige",
 }: FooterProps) {
   return (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-6">
-      <div className="max-w-4xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="flex flex-col sm:flex-row items-center sm:space-x-4 text-sm text-gray-700 dark:text-gray-300">
+    <footer className="border-t border-slate-900/10 dark:border-white/10 py-8">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row items-center sm:space-x-4 text-sm text-slate-500 dark:text-slate-400">
           <a href={`mailto:${email}`} className="hover:underline">
             {email}
           </a>
@@ -36,7 +36,7 @@ export default function Footer({
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="text-gray-600 hover:text-blue-500"
+            className="text-slate-500 dark:text-slate-400 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
           >
             {/* LinkedIn SVG */}
             <svg
@@ -55,7 +55,7 @@ export default function Footer({
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="text-gray-600 hover:text-gray-800 dark:hover:text-white"
+            className="text-slate-500 dark:text-slate-400 transition-colors hover:text-slate-900 dark:hover:text-white"
           >
             {/* GitHub SVG */}
             <svg
@@ -70,8 +70,8 @@ export default function Footer({
           </a>
         </div>
 
-        <div className="text-xs text-gray-500 dark:text-gray-400">
-          © {new Date().getFullYear()} {author}. Designed & built by me.
+        <div className="text-xs text-slate-500">
+          © {new Date().getFullYear()} {author}. Built with Next.js &amp; Tailwind CSS.
         </div>
       </div>
     </footer>

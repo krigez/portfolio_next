@@ -6,8 +6,8 @@ import "./timeline.css";
 
 export const Timeline: React.FC = () => {
   return (
-    <main className="timeline-root wrap" aria-labelledby="timeline-title">
-      <h1 id="timeline-title">Career & Education — Timeline</h1>
+    <div className="timeline-root" aria-labelledby="timeline-title">
+      <h3 id="timeline-title" className="sr-only">Career timeline</h3>
       <section className="timeline" aria-label="Career timeline">
         {timelineData.map((item, idx) => (
           <TimelineItem
@@ -17,6 +17,6 @@ export const Timeline: React.FC = () => {
           />
         ))}
       </section>
-    </main>
+    </div>
   );
 };
